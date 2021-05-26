@@ -1,0 +1,33 @@
+
+syntax = "proto3";
+
+// import "google/protobuf/timestamp.proto";
+// Image Upload Test Network Latency
+
+service ImageUploadSrv {
+  rpc analyze(stream Image) returns (Result) {}
+  
+}
+
+message Image {
+
+  string camera = 1;
+  //camera No.
+  
+  bytes pic = 2 ;
+  //picture to bytes
+  
+  double elapsed_time = 3;
+  //start time
+
+  string name = 4 ;
+  //picture name
+}
+
+message Result {
+  string result = 1;
+  //results
+  
+  double process_time = 2;
+  //Ending Time
+}
